@@ -19,9 +19,17 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <!--配置读取db.properties-->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <!--用来存放和profile相关的配置信息-->
+                <value>classpath:config/db.properties</value>
+            </list>
+        </property>
+    </bean>
 
-
-
-
+    <!--导入applicationContext-Mybatis.xml-->
+    <import resource="applicationContext-Mybatis.xml"/>
 
 </beans>
